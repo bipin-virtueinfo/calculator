@@ -1,5 +1,5 @@
 class Investment < ActiveRecord::Base
-  validates_presence_of :square_feet, :cost_of_property, :sale_value_of_property
+  validates :square_feet, :cost_of_property, :sale_value_of_property, :numericality => {:greater_than => 0.0}
 
   def sale_value_of_property=(val)
     self[:return_of_investment] = (self.cost_of_property.to_f - val.to_f)/self.cost_of_property.to_f * 100

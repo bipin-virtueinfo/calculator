@@ -1,13 +1,11 @@
 class FrontController < ApplicationController
   def dashboard
-    @investment = Investment.new
-    @investment.square_feet = ''
-    @investment.cost_of_property = ''
-    @investment.sale_value_of_property = ''
+    @investment = (session[:id]) ? Investment.find(session[:id]) : Investment.new
     if request.post?
         @investment = Investment.new(investment_params)
         respond_to do |format|
           if @investment.save
+            session[:id] = @investment.id
             format.html { redirect_to dashboard_path, notice: "Return on Investment is: #{@investment.profit_per_square_feet}% with a profit of #{@investment.square_feet} per square feet" }
             format.json {}
           else

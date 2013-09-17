@@ -30,4 +30,6 @@
 <% if flash[:notice] %>
     <div class="alert-success" id="notice"><%= flash[:notice] %></div>
     <% flash[:notice] = nil %>
+    <% session[:id] = nil %>
+
 <% end %>
