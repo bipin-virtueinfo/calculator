@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  square_feet: 1.5
+  cost_of_property: 1.5
+  sale_value_of_property: 1.5
+  return_of_investment: 1.5
+
+two:
+  square_feet: 1.5
+  cost_of_property: 1.5
+  sale_value_of_property: 1.5
+  return_of_investment: 1.5

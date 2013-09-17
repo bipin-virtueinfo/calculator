@@ -1,0 +1,33 @@
+<h1>Return on Investment</h1>
+
+<%= form_for @investment, :url => dashboard_path do |f| %>
+  <div class="field">
+    <%= f.label :square_feet %><br>
+    <%= f.text_field :square_feet %>
+        <% if @investment.errors[:square_feet].any? %>
+            <span class="text-error text-message"><%= @investment.errors[:square_feet].first %></span>
+        <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_of_property %><br>
+    <%= f.text_field :cost_of_property %>
+        <% if @investment.errors[:cost_of_property].any? %>
+            <span class="text-error text-message"><%= @investment.errors[:cost_of_property].first %></span>
+        <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :sale_value_of_property %><br>
+    <%= f.text_field :sale_value_of_property %>
+        <% if @investment.errors[:sale_value_of_property].any? %>
+            <span class="text-error text-message"><%= @investment.errors[:sale_value_of_property].first %></span>
+        <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Calculate" %>
+  </div>
+<% end %>
+
+<% if flash[:notice] %>
+    <div class="alert-success" id="notice"><%= flash[:notice] %></div>
+    <% flash[:notice] = nil %>
+<% end %>
